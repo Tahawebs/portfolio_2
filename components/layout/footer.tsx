@@ -1,0 +1,1 @@
+import{portfolio}from"@/config/portfolio";export function Footer(){return <footer><strong>{portfolio.person.name}</strong><span>Full-stack software, thoughtfully crafted.</span><a href="#home">Back to top ↑</a></footer>}

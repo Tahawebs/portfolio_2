@@ -1,0 +1,1 @@
+import {ArrowUpRight} from "lucide-react";export function AnimatedLink({href,children,label}:{href:string;children:React.ReactNode;label:string}){return <a className="animated-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>{children}<ArrowUpRight/><span className="sr-only"> Opens in a new tab</span></a>}

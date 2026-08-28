@@ -1,0 +1,1 @@
+import {Reveal} from "@/components/motion/reveal";export function SectionHeading({label,title,intro}:{label:string;title:string;intro?:string}){return <div className="section-heading"><Reveal direction="left"><span className="kicker">{label}</span></Reveal><Reveal direction="clip"><h2>{title}</h2>{intro&&<p>{intro}</p>}</Reveal></div>}

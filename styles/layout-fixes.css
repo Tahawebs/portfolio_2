@@ -1,0 +1,149 @@
+/*
+  Append this file to app/globals.css, after the existing styles.
+  These selectors intentionally override the previous rules.
+*/
+
+/* 1. Keep the desktop navigation centered in the viewport. */
+@media (min-width: 961px) {
+  .header {
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+    align-items: center;
+    gap: 18px;
+  }
+
+  .brand {
+    min-width: 0;
+    justify-self: start;
+  }
+
+  .desktop-nav {
+    position: static;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 1.55vw, 25px);
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .desktop-nav a {
+    flex: 0 0 auto;
+  }
+
+  .head-tools {
+    min-width: 0;
+    justify-self: end;
+  }
+}
+
+/* Prevent the full wordmark from squeezing navigation on narrower laptops. */
+@media (min-width: 961px) and (max-width: 1120px) {
+  .header {
+    grid-template-columns: 54px auto minmax(156px, 1fr);
+  }
+
+  .brand > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .desktop-nav {
+    gap: 13px;
+  }
+
+  .desktop-nav a {
+    font-size: 12px;
+  }
+}
+
+/* 2. Remove all profile technology labels, including stale markup during HMR. */
+.profile-stage .tech-badge {
+  display: none !important;
+}
+
+/* Keep the portrait composition clean after removing labels. */
+.profile-stage {
+  isolation: isolate;
+}
+
+.orbit {
+  opacity: 0.7;
+}
+
+/* 3. Make the Experience background imagery clearer without harming contrast. */
+.marquee-bg {
+  opacity: 0.38;
+  filter: saturate(0.72) contrast(1.04);
+}
+
+.experience-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      var(--surface) 0%,
+      color-mix(in srgb, var(--surface) 72%, transparent) 27%,
+      color-mix(in srgb, var(--surface) 68%, transparent) 72%,
+      var(--surface) 100%
+    ),
+    linear-gradient(
+      180deg,
+      var(--surface) 0%,
+      color-mix(in srgb, var(--surface) 30%, transparent) 19%,
+      color-mix(in srgb, var(--surface) 30%, transparent) 81%,
+      var(--surface) 100%
+    );
+}
+
+.experience-content .section-heading,
+.experience-overview,
+.experience-tabs {
+  position: relative;
+  z-index: 4;
+}
+
+.experience-overview,
+.experience-tabs article {
+  box-shadow: 0 24px 70px color-mix(in srgb, var(--bg) 40%, transparent);
+}
+
+.dark .marquee-bg {
+  opacity: 0.42;
+  filter: saturate(0.68) contrast(1.08) brightness(0.88);
+}
+
+/* Mobile imagery stays visible but controlled. */
+@media (max-width: 760px) {
+  .marquee-bg {
+    opacity: 0.22;
+    filter: saturate(0.62) contrast(1.03);
+  }
+
+  .dark .marquee-bg {
+    opacity: 0.26;
+  }
+
+  .experience-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        var(--surface) 0%,
+        color-mix(in srgb, var(--surface) 68%, transparent) 24%,
+        color-mix(in srgb, var(--surface) 68%, transparent) 76%,
+        var(--surface) 100%
+      );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-bg {
+    opacity: 0.3;
+  }
+}

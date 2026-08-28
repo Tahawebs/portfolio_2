@@ -1,0 +1,1 @@
+import {ArrowRight} from "lucide-react";import {cn} from "@/lib/utils";export function Button({href,children,variant="primary"}:{href:string;children:React.ReactNode;variant?:"primary"|"secondary"}){return <a className={cn("button",variant)} href={href}>{children}<ArrowRight/></a>}
