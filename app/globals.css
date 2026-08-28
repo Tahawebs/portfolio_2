@@ -166,7 +166,8 @@ button {
 
 .desktop-nav {
   display: flex;
-  gap: 25px
+  align-items: center;
+  gap: 30px;
 }
 
 .desktop-nav a {
@@ -182,30 +183,32 @@ button {
     transform 0.25s ease;
 }
 
-.desktop-nav a:hover {
-  color: var(--fg);
-  transform: translateY(-1px);
-}
-
-.desktop-nav a:after {
+.desktop-nav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -8px;
+  right: 2px;
+  bottom: 3px;
+  left: 2px;
   height: 2px;
+  border-radius: 999px;
   background: var(--accent);
   transform: scaleX(0);
-  transition: .25s
+  transform-origin: center;
+  transition: transform 0.25s ease;
 }
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
-  color: var(--fg)
+  color: var(--fg);
 }
 
-.desktop-nav a.active:after {
-  transform: scaleX(1)
+.desktop-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+  transform: scaleX(1);
 }
 
 .head-tools {
